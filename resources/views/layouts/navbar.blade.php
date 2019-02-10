@@ -2,10 +2,6 @@
         <a class="navbar-brand" href="#">
             {{ config('app.name', 'ToDo') }}
         </a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <!-- Left Side Of Navbar -->
             <ul class="navbar-nav mr-auto">
@@ -14,11 +10,15 @@
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('todo') }}">ToDo</a>
+                        <a class="nav-link" href="/lists">ToDo</a>
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('about') }}">About</a>
+                        <a class="nav-link" href="{{ route('about') }}">Contact</a>
+                    </li>
+
+                    <li class="nav-item">
+                            <a class="nav-link" href="{{ route('admin') }}">Admin</a>
                     </li>
             </ul>
 
@@ -41,6 +41,7 @@
                         </a>
 
                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="/dashboard">Dashboard</a>
                             <a class="dropdown-item" href="{{ route('logout') }}"
                                onclick="event.preventDefault();
                                              document.getElementById('logout-form').submit();">

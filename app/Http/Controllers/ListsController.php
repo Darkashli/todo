@@ -11,6 +11,11 @@ use DB;
 class ListsController extends Controller
 {
 
+    public function __construct()
+    {
+        $this->middleware('auth', ['except' => ['index', 'show']]);
+    }
+
     // public function __construct()
     // {
     //     $this->middleware('auth', ['except' => ['index', 'show']]);
@@ -23,8 +28,8 @@ class ListsController extends Controller
      */
     public function index()
     {
-        $mylists = MyList::orderBy('created_at', 'desc')->paginate(4);
-        return view('pages.mylists')->with('mylists', $mylists);
+        $lists = MyList::orderBy('created_at', 'desc')->paginate(4);
+        return view('pages.lists')->with('lists', $lists);
     }
 
     /**
@@ -60,9 +65,10 @@ class ListsController extends Controller
         $post = new MyList;
         $post->title = $request->input('title');
         $post->body = $request->input('body');
+        $post->user_id = auth()->user()->id;
         $post->save();
 
-        return redirect('/mylists')->with('success', 'List Created');
+        return redirect('/dashboard')->with('success', 'List Created');
     }
 
     /**
@@ -87,6 +93,9 @@ class ListsController extends Controller
     public function edit($id)
     {
         $showList = MyList::find($id);
+        if(auth()->user()->id !== $showList->user_id){
+            return redirect('/lists')->with('error', 'Unauthorized Page');
+        }
         return view('pages.edit')->with('showList', $showList);
     }
 
@@ -122,7 +131,11 @@ class ListsController extends Controller
     public function destroy($id)
     {
         $showList = MyList::find($id);
+        // if(auth()->user()->id !== $showList->user_id){
+        //     return redirect('/lists')->with('error', 'Unauthorized Page');
+        // }
         $showList->delete();
-        return redirect('/mylists')->with('success', 'List Removed');
+        
+        return redirect('/dashboard')->with('success', 'List Removed');
     }
 }

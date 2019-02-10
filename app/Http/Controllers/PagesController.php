@@ -7,12 +7,15 @@ use Illuminate\Http\Request;
 class PagesController extends Controller
 {
     public function index(){
-        $title = 'You lists';
-        return view('pages/home', compact('title'));
+        return view('pages.home');
     }
 
     public function about(){
-        $title = 'About US';
+        $title = 'Contact us';
         return view('pages/about')->with('title', $title);
+    }
+
+    public function error(){
+        return view('pages.error');
     }
 }

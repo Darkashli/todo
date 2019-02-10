@@ -10,11 +10,14 @@
         </div>
         <div class="form-group">
           {{Form::label('body', 'Body')}}
-          {!!Form::textarea('body','', ['id' => 'summary-ckeditor', 'class' => 'form-control', 'placeholder' => 'Body Text', 'required' => 'autofocus'])!!}
+          {!!Form::textarea('body','', ['id' => 'ckeditor', 'class' => 'form-control editor', 'placeholder' => 'Body Text', 'required' => 'autofocus'])!!}
         </div>
         <div class="form-group">
           {{Form::file('cover_image')}}
         </div>
           {{Form::submit('Submit', ['class' =>'btn btn-outline-primary'])}}
     {!! Form::close() !!} 
+    
+    
 @endsection
+

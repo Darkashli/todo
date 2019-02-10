@@ -2,7 +2,7 @@
 
 @section('content')
     <a href="/lists" class="btn btn-outline-secondary">Go Back</a><br><br>
-    <h3>{{$showList->title}}</h3>
+    <h2>{{$showList->title}}</h2>
     
     <div>
       <h5>{!!$showList->body!!}</h5>
@@ -10,8 +10,8 @@
     <hr>
     <small>Written on {{$showList->created_at}} by {{$showList->user['name']}}</small>
     <hr>
-    {{-- @if(!Auth::guest()) --}}
-      {{-- @if (Auth::user()->id == $showList->user_id)  --}}
+    @if(!Auth::guest())
+      @if (Auth::user()->id == $showList->user_id) 
 
       <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
           <div class="btn-group" role="group" aria-label="First group">
@@ -25,5 +25,7 @@
                   {!!Form::close()!!}
           </div>
       </div>
+      @endif
+    @endif
   
 @endsection

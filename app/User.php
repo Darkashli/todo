@@ -27,4 +27,15 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    const ADMIN_TYPE = 'admin';
+    const DEFAULT_TYPE = 'default';
+
+    public function IsAdmin() {       
+        return $this->type === self::ADMIN_TYPE;    
+    }
+
+    public function mylists(){
+        return $this->hasMany('App\MyList');
+    }
 }

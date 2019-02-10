@@ -10,7 +10,7 @@
         </div>
         <div class="form-group"> 
           {{Form::label('body', 'Body')}}
-          {!!Form::textarea('body', $showList->body, ['id' => 'summary-ckeditor', 'class' => 'form-control', 'placeholder' => 'Body Text', 'required' => 'autofocus'])!!}
+          {!!Form::textarea('body', $showList->body, ['id' => 'ckeditor', 'class' => 'form-control', 'placeholder' => 'Body Text', 'required' => 'autofocus'])!!}
         </div>
         
           {{Form::hidden('_method', 'PUT')}}
