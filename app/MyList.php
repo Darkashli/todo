@@ -14,4 +14,9 @@ class MyList extends Model
     {
         return $this->belongsTo('App\User');
     }
+
+    public function task()
+    {
+        return $this->hasMany('App\Task');
+    }
 }

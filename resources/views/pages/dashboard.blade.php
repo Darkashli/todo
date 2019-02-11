@@ -28,7 +28,7 @@
 
                             @foreach ($mylists as $mylist)
                                 <tr>
-                                    <td>{{$mylist->title}}</td>
+                                    <td><a href="/lists/view/{{$mylist->id}}">{{$mylist->title}}</a></td>
                                     <td>{{$mylist->created_at}}</td>
                                     <td><a class="btn btn-outline-success" href="/lists/{{$mylist->id}}/edit">Edit</td>
                                     <td>
@@ -37,15 +37,6 @@
                                        {{Form::submit('Delete', ['class' => 'btn btn-outline-danger'])}}
                                         {!!Form::close()!!}
                                     </td>
-                                   {{-- If you want to add Edit and Delete buttons --}}
-                                   
-                                    {{-- <td><a href="#{{$mylist->id}}/edit" class="btn btn-outline-success">Edit</a></td>
-                                    <td>
-                                        {!!Form::open(['action' => ['ListsController@destroy', $mylist->id], 'method' => 'POST'])!!}
-                                        {{Form::hidden('_method', 'DELETE')}}
-                                        {{Form::submit('Delete', ['class' => 'btn btn-outline-danger btnDelete'])}}
-                                        {!!Form::close()!!}
-                                    </td> --}}
                                 </tr> 
                             @endforeach
                         </table> 

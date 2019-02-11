@@ -5,6 +5,7 @@ Route::get('/about', 'PagesController@about')->name('about');
 Route::get('/lists', 'ListsController@index')->name('todo');
 Route::get('/lists/view/{id}', 'ListsController@show');
 Route::resource('lists', 'ListsController');
+Route::resource('tasks', 'TasksController');
 Route::get('/error', 'PagesController@error')->name('error');
 
 Auth::routes();

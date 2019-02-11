@@ -93,7 +93,7 @@ class ListsController extends Controller
     public function edit($id)
     {
         $showList = MyList::find($id);
-        if(auth()->user()->id !== $showList->user_id){
+        if(auth()->user()->id != $showList->user_id){
             return redirect('/lists')->with('error', 'Unauthorized Page');
         }
         return view('pages.edit')->with('showList', $showList);
@@ -118,7 +118,7 @@ class ListsController extends Controller
         $post->body = $request->input('body');
         $post->save(); 
 
-        return redirect('/mylists')->with('success', 'List Updated');
+        return redirect('/dashboard')->with('success', 'List Updated');
 
     }
 
@@ -131,9 +131,9 @@ class ListsController extends Controller
     public function destroy($id)
     {
         $showList = MyList::find($id);
-        // if(auth()->user()->id !== $showList->user_id){
-        //     return redirect('/lists')->with('error', 'Unauthorized Page');
-        // }
+        if(auth()->user()->id != $showList->user_id){
+            return redirect('/lists')->with('error', 'Unauthorized Page');
+        }
         $showList->delete();
         
         return redirect('/dashboard')->with('success', 'List Removed');
