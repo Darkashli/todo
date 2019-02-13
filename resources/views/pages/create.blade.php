@@ -12,9 +12,6 @@
           {{Form::label('body', 'Body')}}
           {!!Form::textarea('body','', ['id' => 'ckeditor', 'class' => 'form-control editor', 'placeholder' => 'Body Text', 'required' => 'autofocus'])!!}
         </div>
-        <div class="form-group">
-          {{Form::file('cover_image')}}
-        </div>
           {{Form::submit('Submit', ['class' =>'btn btn-outline-primary'])}}
     {!! Form::close() !!} 
     

@@ -65,6 +65,9 @@ class ListsController extends Controller
         $post = new MyList;
         $post->title = $request->input('title');
         $post->body = $request->input('body');
+        // $post->MyList()->tasks()->$request->input('title');
+        // $post->MyList()->tasks()->$request->input('body');
+        // $post->list_id = mylist()->id;
         $post->user_id = auth()->user()->id;
         $post->save();
 
@@ -80,7 +83,8 @@ class ListsController extends Controller
 
     public function show($id)
     {
-        $showList = MyList::find($id);
+        // $showList = MyList::find($id);
+        $showList = MyList::all();
         return view('pages.view')->with('showList', $showList);
     }
 
