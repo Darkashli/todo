@@ -15,8 +15,9 @@ class MyList extends Model
         return $this->belongsTo('App\User');
     }
 
-    public function task()
+
+    public function tasks()
     {
-        return $this->hasMany('App\Task');
+        return $this->hasMany('App\Task', 'list_id');
     }
 }

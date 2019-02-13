@@ -14,7 +14,8 @@ class AddUserIdToMylists extends Migration
     public function up()
     {
         Schema::table('mylists', function (Blueprint $table) {
-            $table->integer('user_id');
+            $table->unsignedInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
     }
 
@@ -26,6 +27,7 @@ class AddUserIdToMylists extends Migration
     public function down()
     {
         Schema::table('mylists', function (Blueprint $table) {
+            $table->dropForeign('mylists_user_id_foreign');
             $table->dropColumn('user_id');
         });
     }

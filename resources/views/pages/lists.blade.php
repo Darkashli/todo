@@ -27,7 +27,7 @@
 
                             @foreach ($lists as $list)
                                 <tr>
-                                    <td><a href="/lists/view/{{$list->id}}">{{$list->title}}</a>
+                                    <td><a href="/lists/view/{{$list->id}}">{{$list->title}}</a></td>
                                     <td>{{$list->created_at}}</td>
                                     <td>{{$list->user['name']}}</td>
 

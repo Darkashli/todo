@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Task;
+use App\MyList;
 use DB;
 
 class TasksController extends Controller
@@ -13,10 +14,10 @@ class TasksController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($id)
     {
         $tasks = Task::orderBy('created_at', 'desc')->paginate(6);
-        return view('pages.view')->with('tasks', $tasks);
+        return view('pages.tasksview')->with('tasks', $tasks);
     }
 
     /**
@@ -48,8 +49,12 @@ class TasksController extends Controller
      */
     public function show($id)
     {
-        //
+        $showTask = Task::find($id);
+        dd($showTask);
+        // return view('pages.tasksview')->with('showTask', $showTask);
     }
+
+    
 
     /**
      * Show the form for editing the specified resource.
@@ -59,7 +64,11 @@ class TasksController extends Controller
      */
     public function edit($id)
     {
-        //
+        $showTask = Task::find($id);
+        if(mylist()->id != $showTask->list_id){
+            return redirect('/lists')->with('error', 'Unauthorized Page');
+        }
+        return view('pages.edit')->with('showTask', $showTask);
     }
 
     /**

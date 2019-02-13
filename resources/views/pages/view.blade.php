@@ -2,42 +2,33 @@
 
 @section('content')
     <a href="/lists" class="btn btn-outline-secondary">Go Back</a>
+    <br><br>
     <h2>{!!$showList->title!!}</h2>
     
     <div>
       <h5>{!!$showList->body!!}</h5>
     </div>
+
+    <table class="table table-striped">
+      <tr>
+          <th>Title</th>
+          <th>Description</th>
+          <th>Date</th>
+          <th></th>
+      </tr>
+
+  @foreach ($lists as $list)
+      <tr>
+          <td><{{$showList->tasks['title']}}</td>
+          <td>{{$showList->tasks['body']}}</td>
+          <td>{{$showList->tasks['created_at']}}</td>
+      </tr> 
+  @endforeach
+</table> 
     <hr>
     <small>Written on {{$showList->created_at}} by {{$showList->user['name']}}</small>
     <hr>
-
-      <div class="list-group">
-          <a href="#" class="list-group-item list-group-item-action flex-column align-items-start active">
-            <div class="d-flex w-100 justify-content-between">
-              <h5 class="mb-1"></h5>
-              <small class="text-muted"></small>
-            </div>
-            <p class="mb-1">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
-            <small class="text-muted"></small>
-          </a>
-          <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
-            <div class="d-flex w-100 justify-content-between">
-              <h5 class="mb-1">List group item heading</h5>
-              <small class="text-muted"></small>
-            </div>
-            <p class="mb-1">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
-            <small class="text-muted">}</small>
-          </a>
-          <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
-            <div class="d-flex w-100 justify-content-between">
-              <h5 class="mb-1">List group item heading</h5>
-              <small class="text-muted"></small>
-            </div>
-            <p class="mb-1">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
-            <small class="text-muted">Donec id elit non mi porta.</small>
-          </a>
-        </div>
-        <br>
+    <br>
 
         @if(!Auth::guest())
         @if (Auth::user()->id == $showList->user_id) 

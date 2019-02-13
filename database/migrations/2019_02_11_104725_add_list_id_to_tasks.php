@@ -14,7 +14,8 @@ class AddListIdToTasks extends Migration
     public function up()
     {
         Schema::table('tasks', function (Blueprint $table) {
-            $table->integer('list_id');
+            $table->unsignedInteger('list_id');
+            $table->foreign('list_id')->references('id')->on('mylists')->onDelete('cascade');
         });
     }
 
@@ -26,6 +27,7 @@ class AddListIdToTasks extends Migration
     public function down()
     {
         Schema::table('tasks', function (Blueprint $table) {
+            $table->dropForeign('tasks_list_id_foreign');
             $table->dropColumn('list_id');
         });
     }
