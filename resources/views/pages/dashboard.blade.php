@@ -23,7 +23,7 @@
                                     <th>Title</th>
                                     <th>Date</th>
                                     <th>Action</th>
-                                    <th></th>
+                                    <th>Action</th>
                                 </tr>
 
                             @foreach ($mylists as $mylist)

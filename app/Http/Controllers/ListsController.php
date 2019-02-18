@@ -83,9 +83,10 @@ class ListsController extends Controller
 
     public function show($id)
     {
-        // $showList = MyList::find($id);
-        $showList = MyList::all();
-        return view('pages.view')->with('showList', $showList);
+        $user_id = auth()->user()->id;
+        $showList = User::find($user_id);
+        // $showList = MyList::all();
+        return view('pages.view')->with('showList', $showList->mylists);
     }
 
     /**

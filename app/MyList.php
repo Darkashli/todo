@@ -20,4 +20,9 @@ class MyList extends Model
     {
         return $this->hasMany('App\Task', 'list_id');
     }
+
+    public function counter() 
+    {
+        // ask database how many tasks in this list
+    }
 }
