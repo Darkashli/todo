@@ -8,11 +8,13 @@
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet" type="text/css">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/custom.css') }}" rel="stylesheet">
+
 </head>
 <body>
     <div id="app">
         
-        <main class="container">
+        <main class="main container-fluid">
             @include('layouts.navbar')
             @include('layouts.messages')
             @yield('content')
@@ -20,6 +22,7 @@
     </div>
 
     <script src="{{ asset('js/app.js') }}"></script>
+
     <script src="/vendor/unisharp/laravel-ckeditor/ckeditor.js"></script>
     <script>
         CKEDITOR.replace( 'ckeditor' );

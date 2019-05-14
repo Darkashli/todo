@@ -9,9 +9,9 @@
                 <div class="card-header">Our Lists</div>
 
                 <div class="card-body">
-                    @if (session('status'))
+                    @if (session('success'))
                         <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
+                            {{ session('success') }}
                         </div>
                     @endif
                     <a href="/lists/create" class="btn btn-outline-primary">Create List</a><br><br>

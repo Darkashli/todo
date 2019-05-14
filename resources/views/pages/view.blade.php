@@ -1,6 +1,9 @@
 @extends('layouts.app') 
 
 @section('content')
+
+<div class="container">
+
 <a href="/lists" class="btn btn-outline-secondary">Go Back</a>
 <br><br>
 
@@ -49,4 +52,5 @@
            {{-- @endif --}}
            {{-- @endif --}}
    @endforeach
+  </div>
 @endsection

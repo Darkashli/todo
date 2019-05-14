@@ -1,6 +1,9 @@
 @extends('layouts.app') 
 
 @section('content')
+
+<div class="container">
+  
     <h2>Edit List</h2><br>
     {!! Form::open(['action' => ['ListsController@update', $showList->id], 'method' => 'POST']) !!} 
     {{ csrf_field() }}
@@ -16,4 +19,5 @@
           {{Form::hidden('_method', 'PUT')}}
           {{Form::submit('Submit', ['class' =>'btn btn-outline-primary'])}}
     {!! Form::close() !!} 
+</div>
 @endsection

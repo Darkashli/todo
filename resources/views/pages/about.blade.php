@@ -1,6 +1,8 @@
 @extends('layouts.app')
 
 @section('content')
+
+<div class="container">
     
 <h1>{{$title}}<h1>
   <br>
@@ -9,6 +11,6 @@
   <br><br>
   <h3>General Inquiries</h3>
   Have a non-support related query? Then feel free to get in touch here - darkashli@icloud.com
- 
+</div>
 @endsection
 
