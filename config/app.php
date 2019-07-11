@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'name' => env('APP_NAME', 'Laravel'),
+    'name' => env('APP_NAME', 'ToDo'),
 
     /*
     |--------------------------------------------------------------------------
@@ -162,8 +162,6 @@ return [
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
         Collective\Html\HtmlServiceProvider::class,
-        Unisharp\Ckeditor\ServiceProvider::class,
-        JeroenNoten\LaravelAdminLte\ServiceProvider::class,
 
         /*
          * Package Service Providers...

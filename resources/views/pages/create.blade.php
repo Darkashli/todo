@@ -1,10 +1,10 @@
-@extends('layouts.app') 
+@extends('layouts.app')
 
 @section('content')
 
 <div class="container">
     <h2>Create List</h2><br>
-    {!! Form::open(['action' => 'ListsController@store', 'method' => 'POST']) !!} 
+    {!! Form::open(['action' => 'ListsController@store', 'method' => 'POST']) !!}
     @csrf
     <div class="form-group">
          {{Form::label('title', 'Title')}}
@@ -15,8 +15,7 @@
           {!!Form::textarea('body','', ['id' => 'ckeditor', 'class' => 'form-control editor', 'placeholder' => 'Body Text', 'required' => 'autofocus'])!!}
         </div>
           {{Form::submit('Submit', ['class' =>'btn btn-outline-primary'])}}
-    {!! Form::close() !!} 
-    
+    {!! Form::close() !!}
 </div>
-@endsection
 
+@endsection
