@@ -37,7 +37,7 @@
           <br>
           <div>
               <div class="btn-group" role="group" aria-label="First group">
-                  <button class="btn btn-outline-success"><a href="/lists/{{$list->id}}/edit" class="">Edit</a></button>
+                  <a class="btn btn-outline-success" href="/lists/{{$list->id}}/edit" class="">Edit</a>
               </div>
               <div class="btn-group" role="group" aria-label="Second group">
                   {!!Form::open(['action' => ['ListsController@destroy', $list->id], 'method' => 'POST'])!!}
@@ -46,6 +46,7 @@
                   {!!Form::close()!!}
               </div>
           </div>
+          <br>
           
            {{-- @if(!Auth::guest()) --}}
            {{-- @if (Auth::user()->id == $list->user_id) --}}

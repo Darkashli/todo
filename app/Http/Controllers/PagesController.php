@@ -7,7 +7,8 @@ use Illuminate\Http\Request;
 class PagesController extends Controller
 {
     public function index(){
-        return view('pages.home');
+        $title = 'Make your own plan without hesitation!';
+        return view('pages.home')->with('title', $title);
     }
 
     public function about(){
